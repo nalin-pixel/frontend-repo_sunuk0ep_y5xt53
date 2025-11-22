@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Menu, X, Mail, Github, Globe2 } from 'lucide-react'
+import { motion } from 'framer-motion'
 
 function NavLink({ href, children, onClick }) {
   return (
@@ -21,10 +22,10 @@ export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mt-4 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur supports-[backdrop-filter]:bg-slate-900/40 shadow-lg">
+        <motion.div initial={{ y: -30, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ duration: 0.6 }} className="mt-4 rounded-2xl border border-white/10 bg-slate-900/60 backdrop-blur supports-[backdrop-filter]:bg-slate-900/40 shadow-lg neon-border">
           <div className="flex items-center justify-between px-4 py-3 md:px-6">
-            <a href="#home" className="flex items-center gap-3">
-              <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-blue-500 via-cyan-400 to-emerald-400 shadow-[0_0_35px_rgba(56,189,248,0.45)]" />
+            <a href="#home" className="relative flex items-center gap-3">
+              <div className="relative h-9 w-9 rounded-xl bg-gradient-to-tr from-cyan-400 via-sky-400 to-indigo-500 shadow-[0_0_35px_rgba(56,189,248,0.45)] shimmer" />
               <span className="text-white font-semibold tracking-tight">Sui Ghana</span>
             </a>
 
@@ -60,7 +61,7 @@ export default function Navbar() {
               </div>
             </div>
           )}
-        </div>
+        </motion.div>
       </div>
     </header>
   )
